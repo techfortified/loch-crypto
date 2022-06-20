@@ -17,6 +17,7 @@ export default function Home() {
         <title>Loch Cryptocurrency App</title>
         <meta name="description" content="Loch Cryptocurrency App" />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:image" content="/loch.png" />
         // eslint-disable-next-line react/jsx-no-comment-textnodes
         <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet" />
         // eslint-disable-next-line @next/next/no-page-custom-font
