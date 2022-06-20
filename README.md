@@ -1,14 +1,42 @@
 
 ## About this app
 
-This is a cryptocurrency aggregate API that fetches crypto data from public API such as Etherscan, Solscan & Alchemy
+This is a cryptocurrency aggregate API that fetches crypto data from public APIs such as Etherscan, Solscan & Alchemy which includes wallet balances and transactions by each wallet address.
 
 ![Loch Cryptocurrency Demo](./public/loch.png) 
 
 ## Preview Demo
 [Loch Cryptocurrency Demo](https://localhost:3000) 
 
+## Recommendation
+My final recommendation in terms of aggregate of low latency, high quality, and ease of use include;
 
+1. Etherscan is the most straightforward & simple with low latency, high quality and easier to use api
+2. Solscan is also easier to use as it provides a clear API documentation to follow
+3. Alchemy is great too most especially with the provision for their npm library and sample codes for most popular AJAX APIs like fetch and axios
+4. Coingecko is more of an aggregate of the blockchain space where you can find info about different exchanges and tokens. I did not implement it in this project because it doesn't suit our problem here. Having gone through their documentation, i can say it might be easier to use too.
+5. Blockchain wasn't used in this context as their mode of obtaining API key is tedious but i can say it could be easier to implement based on their documentation.
+
+## Methodoly Adopted
+The methodology used in this project is Rapid application development (RAD). This is used because this project provides a well-defined business objective. It allows you to adjust quickly to shifting requirements as such it's cost effective 
+
+The rapid application development method contains four phases: requirements planning, user design, construction, and cutover. The user design and construction phases repeat until the user confirms that the product meets all requirements.
+
+In this project, requirements where gathered, design made and development followed interatively until the needed features were implemented.
+
+This project requires several wallet addresses to be obtained balances and transactions occured on those addresses. As such, it will be costly to loop through each address and obtain it's data from different API sources. This is where asynchronous and Promise API comes in. Since the API calls are costly make, requests  are made in parallel rather than looping through each wallet address to get its data. This does not only improve the performance of the app but it reduced the cost of making API calls. Since multiple addresses are sent to obtain their balance and transaction details, a promise of all the requests are generated and fetched in parallel until all the requests are resolved at once. This results in a low latency requests and highly performing software. The implementation of this can be found in the `api` directory of this project. 
+
+Note: The data displayed in the UI of this app is just peripheral of the actual data. It can be extended to suit any need.
+
+## Tools used
+- Next.js (React js) makes easier to build high performing software app with great SEO while having modern features. It offers static generation and server-side rendering which is evident in this app. It's a framework that provides both server-side and client side functionalities.
+- swr library for making client requests. It provides solution for depublication and easier to implement.
+- Mdb-react-ui-kit which is a prebuilt react component for building user-interfaces.
+- Etherscan API
+- Solscan API
+- Alchemy
+- Javascript
+## More About this project 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -17,6 +45,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+npm install
+
 npm run dev
 # or
 yarn dev
